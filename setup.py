@@ -1,28 +1,7 @@
 """
-Flask-Blogging
+Flask-Blogging-Patron is a customized version of
+Flask-Blogging utilized by LibrePatron
 --------------
-
-Flask-Blogging is a Flask extension for adding blogging support to
-your web application. Flask-Blogging comes with the following
-features out of the box:
-
-- Bootstrap based site
-- Markdown based blog editor
-- Models to store blog
-- Authentication of User's choice
-- Sitemap, ATOM support
-- Disqus support for comments
-- Google analytics for usage tracking
-- Permissions enabled to control which users can create/edit blogs
-- Incorporates Flask-Cache for fast rendering
-- Well documented, tested, and extensible design
-
-
-Links
-`````
-* `documentation <http://flask-blogging.readthedocs.org/>`_
-* `development version <https://github.com/gouthambs/Flask-Blogging>`_
-
 """
 
 from setuptools import setup, find_packages
@@ -47,13 +26,12 @@ def get_requirements(suffix=''):
     return rv
 
 setup(
-    name='Flask-Blogging',
+    name='Flask-Blogging-Patron',
     version=version,
-    url='https://github.com/gouthambs/Flask-Blogging',
+    url='https://github.com/JeffVandrewJr/Flask-Blogging-Patron',
     license='MIT',
-    author='Gouthaman Balaraman',
-    author_email='gouthaman.balaraman@gmail.com',
-    description='A flask extension for adding Markdown blog support to your site',
+    author='Jeff Vandrew Jr',
+    description='A custom version of gouthambs Flask-Blogging',
     long_description=__doc__,
     packages=find_packages(),
     zip_safe=False,
