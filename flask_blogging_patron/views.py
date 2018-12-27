@@ -8,7 +8,7 @@ from .processor import PostProcessor
 from flask_login import login_required, current_user
 from flask import Blueprint, current_app, render_template, request, redirect, \
     url_for, flash, make_response
-from flask_blogging.forms import BlogEditor
+from flask_blogging_patron.forms import BlogEditor
 import math
 from werkzeug.contrib.atom import AtomFeed
 import datetime
