@@ -240,17 +240,25 @@ def editor(post_id):
                     escape_text = config.get("BLOGGING_ESCAPE_MARKDOWN", True)
                     pid = _store_form_data(form, storage, current_user, post,
                                            escape_text)
-                    editor_post_saved.send(blogging_engine.app,
-                                           engine=blogging_engine,
-                                           post_id=pid,
-                                           user=current_user,
-                                           post=post)
-                    flash("Blog posted successfully!", "info")
+                    if form.tags.data.lower() == 'noemail' or 'public':
+                        email = False
+                    else:
+                        email = True
+                    editor_post_saved.send(
+                        blogging_engine.app,
+                        engine=blogging_engine,
+                        post_id=pid,
+                        user=current_user,
+                        post=post,
+                        email=email
+                    )
+                                         
+                    flash("Update posted successfully!", "info")
                     slug = post_processor.create_slug(form.title.data)
                     return redirect(url_for("blogging.page_by_id", post_id=pid,
                                             slug=slug))
                 else:
-                    flash("There were errors in blog submission", "warning")
+                    flash("There were errors in update submission", "warning")
                     return render_template("blogging/editor.html", form=form,
                                            post_id=post_id, config=config)
             else:
