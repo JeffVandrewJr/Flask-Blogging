@@ -240,17 +240,12 @@ def editor(post_id):
                     escape_text = config.get("BLOGGING_ESCAPE_MARKDOWN", True)
                     pid = _store_form_data(form, storage, current_user, post,
                                            escape_text)
-                    if form.tags.data.lower() == 'noemail' or 'public':
-                        email = False
-                    else:
-                        email = True
                     editor_post_saved.send(
                         blogging_engine.app,
                         engine=blogging_engine,
                         post_id=pid,
                         user=current_user,
                         post=post,
-                        email=email
                     )
                                          
                     flash("Update posted successfully!", "info")
